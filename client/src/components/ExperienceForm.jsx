@@ -39,7 +39,7 @@ export default function ExperienceForm({ data, onChange }) {
           <button
             onClick={addExperience}
             type="button"
-            className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-1 text-sm font-medium hover:bg-purple-200 bg-purple-100 text-purple-700 transition-colors"
+            className="flex items-center gap-2 rounded-lg border border-gray-200 px-3 py-1 text-sm  hover:bg-green-200 bg-green-100 text-green-700 transition-colors"
           >
             <Plus className="size-4" />
             Add Experience
@@ -111,7 +111,7 @@ export default function ExperienceForm({ data, onChange }) {
                 />
               </div>
 
-              <label>
+              <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   checked={experience.is_current || false}
