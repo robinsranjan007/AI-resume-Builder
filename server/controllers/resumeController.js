@@ -130,7 +130,14 @@ export const updateResume = async (req,res)=>{
         const image = req.file;
 
 
-        let resumeDataCopy = JSON.parse(resumeData);
+        let resumeDataCopy ;
+        if(typeof resumeData ==="string")
+        {
+            resumeDataCopy = await JSON.parse(resumeData)
+        }else
+        {
+            resumeDataCopy = structuredClone(resumeData)
+        }
 
         if(image){
 

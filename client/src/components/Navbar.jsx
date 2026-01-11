@@ -1,14 +1,20 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import{Link, useNavigate} from 'react-router-dom'
+import { logout } from '../App/features/authSlice'
 
 function Navbar()
 {
 
-    const users={name:'Robins Ranjan'}
+ 
+    const {user} = useSelector(state=>state.auth)
+    const dispatch = useDispatch()
+
+
     const navigate=useNavigate
 
     const logoutUsers=()=>{
-
+        dispatch(logout())
         navigate('/')
     }
 
@@ -21,7 +27,7 @@ return (
 <img  src='/logo.svg' className='h-11 w-auto'/>
 </Link>
 <div className='flex items-center gap text-sm'>
-    <p className='max-sm:hidden'>Hi {users?.name}</p>
+    <p className='max-sm:hidden'>Hi {user?.name}</p>
     <button onClick={logoutUsers} className='bg-white hover:bg-slate-50 border border-gray-300 px-7 py-1.5 rounded-full active:scale-95 transition-all'>Logout</button>
 </div>
 
